@@ -1,4 +1,5 @@
-    /*
+<?php 
+ /*
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -14,7 +15,8 @@
 function bt_enqueue_scripts() {
     wp_enqueue_style('icon-bt', plugin_dir_url(__FILE__) . 'fonts/icon-bt.css', array(), '1.0');
 }
-add_action('admin_enqueue_scripts', 'bt_enqueue_scripts()');
+
+add_action('admin_enqueue_scripts', 'bt_enqueue_scripts');
 
 function bt_admin_menu() {
     // Check if the "Bibiai Tools" menu exists and create one if it does not exist.
@@ -25,19 +27,21 @@ function bt_admin_menu() {
             'manage_options',
             'bibiai-tools',
             '__return_empty_string',
-            'dashicons-icon-btbibiai-tools'
+            'dashicons-icon-btbibiai-tools',
+            3
         );
     }
 
     // Add the plugin panel as a sub-tab of "Bibiai Tools".
     add_submenu_page(
         'bibiai-tools',
-        '/*Your Plugin*/',
-        '/*Your Plugin*/',
+        'Your Plugin Name',
+        'Your Plugin Name',
         'manage_options',
-        '/*your-plugin*/',
-        '/*your-plugin-setting-page*/'
+        'your-plugin-name',
+        'your_plugin_name_settings_page'
     );
 }
 
 add_action('admin_menu', 'bt_admin_menu');
+?>
